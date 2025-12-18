@@ -70,7 +70,7 @@ const LandingPage = () => {
 
             {/* Marquee */}
             <section className="marquee-section">
-                <Marquee speed={40}>
+                <Marquee speed={25}>
                     <span className="marquee-text">Weddings • Corporate • Parties • Galas • Concerts • Exhibitions • </span>
                 </Marquee>
             </section>
@@ -83,7 +83,11 @@ const LandingPage = () => {
                 </div>
                 <div className="grid-container">
                     {categories.map((cat, idx) => (
-                        <div key={idx} className="category-card">
+                        <div key={idx} className="category-card" onClick={() => {
+                            // Map 'Venues' -> 'Venue' to match FilterBar
+                            const targetCat = cat.name === 'Venues' ? 'Venue' : cat.name;
+                            navigate('/vendors', { state: { category: targetCat } });
+                        }} style={{ cursor: 'pointer' }}>
                             <img src={cat.img} alt={cat.name} className="cat-img" />
                             <div className="cat-overlay">
                                 <h3 style={{ fontSize: '1.8rem' }}>{cat.name}</h3>
