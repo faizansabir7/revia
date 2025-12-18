@@ -70,7 +70,7 @@ const LandingPage = () => {
 
             {/* Marquee */}
             <section className="marquee-section">
-                <Marquee speed={25}>
+                <Marquee speed={40}>
                     <span className="marquee-text">Weddings • Corporate • Parties • Galas • Concerts • Exhibitions • </span>
                 </Marquee>
             </section>

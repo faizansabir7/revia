@@ -131,6 +131,15 @@
     border-top: 1px solid var(--glass-border);
     border-bottom: 1px solid var(--glass-border);
     background: rgba(255, 255, 255, 0.02);
+    --marquee-speed: 25s;
+    /* Desktop Speed */
+}
+
+@media (max-width: 768px) {
+    .marquee-section {
+        --marquee-speed: 12s;
+        /* Mobile Speed (Faster duration for shorter width) */
+    }
 }
 
 .marquee-text {

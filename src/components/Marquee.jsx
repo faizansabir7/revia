@@ -12,7 +12,7 @@ const Marquee = ({ children, direction = 'left', speed = 30 }) => {
         },
         content: {
             display: 'flex',
-            animation: `scroll-${direction} ${speed}s linear infinite`,
+            animation: `scroll-${direction} var(--marquee-speed, ${speed}s) linear infinite`,
             minWidth: '100%',
         },
         item: {
