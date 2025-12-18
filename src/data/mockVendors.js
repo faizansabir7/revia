@@ -1,0 +1,152 @@
+export const mockVendors = [
+    {
+        id: 1,
+        name: "The Royal Palace",
+        category: "Venue",
+        rating: 4.8,
+        reviews: 124,
+        priceRange: "$$$",
+        location: "Bangalore, India",
+        image: "https://images.unsplash.com/photo-1519167758481-83f550bb49b3?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+        tags: ["Luxury", "Grand", "Outdoor"],
+        description: "Experience the grandeur of royalty at The Royal Palace. Nestled in the heart of Bangalore, this venue offers a blend of traditional Rajputana architecture and modern luxury. Perfect for large weddings and grand receptions, our sprawling gardens and regal ballrooms provide the ultimate backdrop for your big day.",
+        gallery: [
+            "https://images.unsplash.com/photo-1519167758481-83f550bb49b3?q=80&w=1200",
+            "https://images.unsplash.com/photo-1519225421980-715cb0202128?q=80&w=1200",
+            "https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1200",
+            "https://images.unsplash.com/photo-1469334031218-e382a71b716b?q=80&w=1200"
+        ],
+        amenities: ["Capacity: 1500 Guests", "Valet Parking", "Bridal Suite", "In-house Catering", "Alcohol Permitted"],
+        packages: [
+            { name: "Royal Gold", price: "₹5,00,000", features: ["Main Ballroom", "Deluxe Decor", "Buffet for 500"] },
+            { name: "Regal Platinum", price: "₹8,50,000", features: ["Full Venue Access", "Premium Decor", "Buffet for 800"] }
+        ]
+    },
+    {
+        id: 2,
+        name: "Lumina Studios",
+        category: "Photography",
+        rating: 4.9,
+        reviews: 89,
+        priceRange: "$$",
+        location: "Mumbai, India",
+        image: "https://images.unsplash.com/photo-1537633552985-df8429e8048b?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+        tags: ["Candid", "Cinematic", "Drone"],
+        description: "Capturing moments that last a lifetime. Lumina Studios specializes in candid wedding photography and cinematic films. We believe in storytelling through lenses, ensuring every emotion of your special day is preserved beautifully.",
+        gallery: [
+            "https://images.unsplash.com/photo-1537633552985-df8429e8048b?q=80&w=1200",
+            "https://images.unsplash.com/photo-1520854221256-17451cc330e7?q=80&w=1200",
+            "https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?q=80&w=1200"
+        ],
+        amenities: ["Drone Coverage", "Same Day Edit", "Photo Album", "Raw Footage"],
+        packages: [
+            { name: "Standard", price: "₹1,50,000", features: ["1 Candid Photographer", "1 Traditional Video"] },
+            { name: "Premium", price: "₹3,00,000", features: ["2 Candid Photographers", "Cinematic Film", "Drone"] }
+        ]
+    },
+    {
+        id: 3,
+        name: "Saffron Spices Catering",
+        category: "Catering",
+        rating: 4.7,
+        reviews: 210,
+        priceRange: "$$",
+        location: "Delhi, India",
+        image: "https://images.unsplash.com/photo-1555244162-803834f70033?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+        tags: ["Traditional", "Buffet", "Gourmet"],
+        description: "A culinary journey for your tastebuds. Saffron Spices brings authentic Indian flavors with a modern twist. From live food counters to exquisite plated dinners, we ensure your guests talk about the food for years to come.",
+        gallery: [
+            "https://images.unsplash.com/photo-1555244162-803834f70033?q=80&w=1200",
+            "https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=1200",
+            "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=80&w=1200"
+        ],
+        amenities: ["Live Counters", "Custom Menu", "Waitstaff Included", "Cutlery & crockery"],
+        packages: [
+            { name: "Silver Buffet", price: "₹800/plate", features: ["3 Main Course", "2 Starters", "2 Desserts"] },
+            { name: "Gold Spread", price: "₹1200/plate", features: ["5 Main Course", "4 Starters", "Live Chaat"] }
+        ]
+    },
+    {
+        id: 4,
+        name: "Ethereal Decor",
+        category: "Decor",
+        rating: 4.6,
+        reviews: 56,
+        priceRange: "$$$",
+        location: "Hyderabad, India",
+        image: "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+        tags: ["Floral", "Modern", "Minimalist"],
+        description: "Turning spaces into dreams. Ethereal Decor specializes in modern, floral-heavy setups that look straight out of a fairytale. We handle everything from stage design to table centerpieces.",
+        gallery: [
+            "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=1200",
+            "https://images.unsplash.com/photo-1478146059778-26028b07395a?q=80&w=1200",
+            "https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?q=80&w=1200"
+        ],
+        amenities: ["Theme Design", "Lighting", "Stage Setup", "Entrance Arch"],
+        packages: [
+            { name: "Minimalist", price: "₹2,00,000", features: ["Stage Decor", "Entrance"] },
+            { name: "Grandeur", price: "₹5,00,000", features: ["Full Venue Theme", "Fresh Flowers", "Lighting"] }
+        ]
+    },
+    // Adding minimal structured data for others to prevent errors
+    {
+        id: 5,
+        name: "Golden Hour Films",
+        category: "Photography",
+        rating: 4.5,
+        reviews: 45,
+        priceRange: "$$",
+        location: "Bangalore, India",
+        image: "https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+        tags: ["Cinematic", "Storytelling"],
+        description: "Specializing in golden hour shoots and romantic storytelling.",
+        gallery: ["https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?q=80&w=1200"],
+        amenities: ["Pre-wedding shoot"],
+        packages: [{ name: "Standard", price: "₹1,00,000", features: ["Photography"] }]
+    },
+    {
+        id: 6,
+        name: "Grand Horizon Hotel",
+        category: "Venue",
+        rating: 4.3,
+        reviews: 312,
+        priceRange: "$$$$",
+        location: "Chennai, India",
+        image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+        tags: ["Five Star", "Ballroom", "Poolside"],
+        description: "Luxury hotel with multiple banquet halls and poolside areas.",
+        gallery: ["https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=1200"],
+        amenities: ["Rooms", "Pool"],
+        packages: [{ name: "Banquet", price: "₹3,00,000", features: ["Hall Rental"] }]
+    },
+    {
+        id: 7,
+        name: "Velvet Vibes Decor",
+        category: "Decor",
+        rating: 4.8,
+        reviews: 78,
+        priceRange: "$$",
+        location: "Pune, India",
+        image: "https://images.unsplash.com/photo-1478146059778-26028b07395a?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+        tags: ["Boho", "Rustic", "Custom"],
+        description: "Eccentric and bohemian decor for the modern couple.",
+        gallery: ["https://images.unsplash.com/photo-1478146059778-26028b07395a?q=80&w=1200"],
+        amenities: ["Custom Props"],
+        packages: [{ name: "Boho Chic", price: "₹1,50,000", features: ["Decor"] }]
+    },
+    {
+        id: 8,
+        name: "Spice Route Feast",
+        category: "Catering",
+        rating: 4.9,
+        reviews: 156,
+        priceRange: "$",
+        location: "Kochi, India",
+        image: "https://images.unsplash.com/photo-1505935428862-770b6f24f629?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+        tags: ["South Indian", "Live Counters"],
+        description: "Authentic spices and traditional feasts.",
+        gallery: ["https://images.unsplash.com/photo-1505935428862-770b6f24f629?q=80&w=1200"],
+        amenities: ["Sadhya"],
+        packages: [{ name: "Feast", price: "₹600/plate", features: ["Full Sadhya"] }]
+    }
+];

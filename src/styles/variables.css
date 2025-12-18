@@ -1,0 +1,120 @@
+/* Google Fonts Import */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap');
+
+:root {
+  /* Colors - Premium Palette */
+  /* Colors - Premium Palette (Classy Update) */
+  --color-primary: #C5A059;
+  /* Champagne Gold - More muted/elegant */
+  --color-primary-light: #E6C888;
+  --color-primary-dark: #8F7238;
+
+  --color-secondary: #1A1A1A;
+  /* Rich Black */
+  --color-secondary-light: #2C2C2C;
+
+  --color-accent: #E27D60;
+  /* Soft Terracotta */
+  --color-bg-dark: #0F0F0F;
+  /* Almost Black */
+  --color-bg-light: #F9F9F9;
+  /* Off White */
+
+  --color-text-main: #FFFFFF;
+  --color-text-muted: #B0B0B0;
+  --color-text-dark: #1A1A1A;
+
+  /* Gradients */
+  --gradient-gold: linear-gradient(135deg, #C5A059 0%, #E6C888 100%);
+  --gradient-dark: linear-gradient(135deg, #111111 0%, #050505 100%);
+  --gradient-hero: radial-gradient(circle at top right, rgba(212, 175, 55, 0.15), transparent 40%),
+    radial-gradient(circle at bottom left, rgba(226, 125, 96, 0.1), transparent 40%);
+
+  /* Typography */
+  --font-main: 'Outfit', sans-serif;
+  --font-heading: 'Playfair Display', serif;
+
+  /* Spacing */
+  --spacing-xs: 0.5rem;
+  /* 8px */
+  --spacing-sm: 1rem;
+  /* 16px */
+  --spacing-md: 2rem;
+  /* 32px */
+  --spacing-lg: 4rem;
+  /* 64px */
+  --spacing-xl: 8rem;
+  /* 128px */
+
+  /* UI Tokens */
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-full: 9999px;
+
+  --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.15);
+  --shadow-glow: 0 0 20px rgba(212, 175, 55, 0.3);
+
+  --glass-bg: rgba(255, 255, 255, 0.05);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --blur-md: 12px;
+}
+
+/* Base resets */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-main);
+  background-color: var(--color-bg-dark);
+  color: var(--color-text-main);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: opacity 0.3s ease;
+}
+
+button {
+  font-family: var(--font-main);
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+/* Utilities */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-sm);
+}
+
+.section {
+  padding: var(--spacing-lg) 0;
+}
+
+.text-gradient {
+  background: var(--gradient-gold);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}

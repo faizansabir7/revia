@@ -1,0 +1,231 @@
+/* Vendor Detail Page Styles */
+
+.vendor-detail-page {
+    padding-bottom: 4rem;
+    animation: fadeIn 0.5s ease;
+}
+
+/* Cinematic Hero */
+.detail-hero {
+    height: 60vh;
+    min-height: 400px;
+    position: relative;
+    width: 100%;
+    margin-bottom: 3rem;
+    overflow: hidden;
+}
+
+.detail-hero-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.7);
+}
+
+.detail-hero-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 3rem 2rem;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+    color: white;
+}
+
+.detail-category {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--color-primary);
+    margin-bottom: 0.5rem;
+    display: inline-block;
+}
+
+.detail-title {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-family: var(--font-heading);
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+}
+
+.detail-location {
+    font-size: 1.1rem;
+    opacity: 0.8;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Layout */
+.detail-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 3rem;
+    align-items: start;
+}
+
+/* Main Content */
+.detail-about h2,
+.detail-amenities h2,
+.detail-gallery h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    font-family: var(--font-heading);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 1rem;
+    color: var(--color-primary-light);
+}
+
+.detail-desc {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--color-text-main);
+    opacity: 0.9;
+    margin-bottom: 3rem;
+}
+
+.amenities-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-bottom: 3rem;
+}
+
+.amenity-item {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: var(--radius-sm);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Gallery */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.gallery-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.gallery-img:hover {
+    transform: scale(1.02);
+}
+
+/* Sidebar / Booking Card */
+.booking-card {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+    position: sticky;
+    top: 100px;
+    /* Navbar height + offset */
+    backdrop-filter: blur(10px);
+}
+
+.price-tag {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    margin-bottom: 0.5rem;
+}
+
+.price-label {
+    font-size: 0.9rem;
+    opacity: 0.7;
+    margin-bottom: 2rem;
+    display: block;
+}
+
+.package-list {
+    margin-bottom: 2rem;
+}
+
+.package-item {
+    padding: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-sm);
+    margin-bottom: 0.8rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.package-item:hover,
+.package-item.selected {
+    border-color: var(--color-primary);
+    background: rgba(212, 175, 55, 0.05);
+}
+
+.pkg-name {
+    font-weight: 600;
+    display: block;
+    margin-bottom: 0.2rem;
+}
+
+.pkg-price {
+    font-size: 0.9rem;
+    color: var(--color-primary);
+}
+
+.request-btn {
+    width: 100%;
+    padding: 1rem;
+    background: var(--color-primary);
+    color: var(--color-secondary);
+    border: none;
+    border-radius: var(--radius-md);
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.request-btn:hover {
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+    transform: translateY(-2px);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .detail-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .detail-hero {
+        height: 40vh;
+    }
+
+    .detail-title {
+        font-size: 2rem;
+    }
+
+    .booking-card {
+        position: static;
+        /* No sticky on mobile */
+        margin-top: 2rem;
+    }
+}
