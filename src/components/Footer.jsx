@@ -159,7 +159,7 @@ const Footer = () => {
                 </div>
 
                 <div style={styles.bottomBar}>
-                    <div>© 2024 Revia Inc. All rights reserved.</div>
+                    <div>© Revia Inc. All rights reserved.</div>
                     <div style={{ display: 'flex', gap: '2rem' }}>
                         <span>Privacy Policy</span>
                         <span>Terms of Service</span>

@@ -12,9 +12,9 @@ export const mockVendors = [
         description: "Experience the grandeur of royalty at The Royal Palace. Nestled in the heart of Bangalore, this venue offers a blend of traditional Rajputana architecture and modern luxury. Perfect for large weddings and grand receptions, our sprawling gardens and regal ballrooms provide the ultimate backdrop for your big day.",
         gallery: [
             "https://images.unsplash.com/photo-1519167758481-83f550bb49b3?q=80&w=1200",
-            "https://images.unsplash.com/photo-1519225421980-715cb0202128?q=80&w=1200",
-            "https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1200",
-            "https://images.unsplash.com/photo-1469334031218-e382a71b716b?q=80&w=1200"
+            "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?q=80&w=1200",
+            "https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=1200",
+            "https://images.unsplash.com/photo-1519167758481-83f550bb49b3?q=80&w=1200"
         ],
         amenities: ["Capacity: 1500 Guests", "Valet Parking", "Bridal Suite", "In-house Catering", "Alcohol Permitted"],
         packages: [
@@ -35,8 +35,9 @@ export const mockVendors = [
         description: "Capturing moments that last a lifetime. Lumina Studios specializes in candid wedding photography and cinematic films. We believe in storytelling through lenses, ensuring every emotion of your special day is preserved beautifully.",
         gallery: [
             "https://images.unsplash.com/photo-1537633552985-df8429e8048b?q=80&w=1200",
-            "https://images.unsplash.com/photo-1520854221256-17451cc330e7?q=80&w=1200",
-            "https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?q=80&w=1200"
+            "https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1200",
+            "https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?q=80&w=1200",
+            "https://images.unsplash.com/photo-1604017011826-d3b4c23f8914?q=80&w=1200"
         ],
         amenities: ["Drone Coverage", "Same Day Edit", "Photo Album", "Raw Footage"],
         packages: [
