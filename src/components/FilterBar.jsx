@@ -2,7 +2,7 @@ import React from 'react';
 import { Search, SlidersHorizontal } from 'lucide-react';
 
 const FilterBar = ({ activeCategory, setActiveCategory, searchTerm, setSearchTerm }) => {
-    const categories = ["All", "Venue", "Photography", "Catering", "Decor"];
+    const categories = ["All", "Venue", "Photography", "Catering", "Decor", "Music", "Transport", "Florist", "Makeup"];
 
     const styles = {
         container: {

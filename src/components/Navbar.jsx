@@ -1,14 +1,18 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import '../styles/Navbar.css';
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
+  const [scrolledPastHero, setScrolledPastHero] = useState(false);
   const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
+      // Hero section is typically ~600-800px. Show button when main CTA is likely scrolled out.
+      setScrolledPastHero(window.scrollY > 560);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
@@ -22,9 +26,12 @@ const Navbar = () => {
         </div>
         {/* Navigation Links Removed for minimalism */}
         <div style={{ flex: 1 }}></div>
-        <button className="nav-cta" onClick={() => navigate('/onboarding')}>
-          Plan Your Event
-        </button>
+        <div style={{ flex: 1 }}></div>
+        {(location.pathname !== '/' || scrolledPastHero) && (
+          <button className="nav-cta" onClick={() => navigate('/onboarding')}>
+            Plan Your Event
+          </button>
+        )}
       </div>
     </nav>
   );

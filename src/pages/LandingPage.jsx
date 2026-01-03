@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import Marquee from '../components/Marquee';
@@ -8,12 +8,20 @@ import '../styles/LandingPage.css';
 
 const LandingPage = () => {
     const navigate = useNavigate();
+    const [arcRotation, setArcRotation] = useState(0);
 
-    const categories = [
+    const arcCategories = [
         { name: "Venues", img: "https://images.unsplash.com/photo-1519167758481-83f550bb49b3?q=80&w=800" },
+        { name: "Decor", img: "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=800" },
         { name: "Photography", img: "https://images.unsplash.com/photo-1537633552985-df8429e8048b?q=80&w=800" },
-        { name: "Decor", img: "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=800" }
+        { name: "Music", img: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?q=80&w=800" },
+        { name: "Catering", img: "https://images.unsplash.com/photo-1555244162-803834f70033?q=80&w=800" },
+        { name: "Florist", img: "https://images.unsplash.com/photo-1596073419667-9d77d59f033f?q=80&w=800" },
+        { name: "Makeup", img: "https://images.unsplash.com/photo-1571332283201-99c82a8b3046?q=80&w=800&auto=format&fit=crop" },
+        { name: "Transport", img: "https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?q=80&w=800" }
     ];
+
+    // Categories now defined inline in render
 
     // Helper to generate random dust particles
     const particles = Array.from({ length: 25 }).map((_, i) => ({
@@ -24,6 +32,11 @@ const LandingPage = () => {
         size: `${2 + Math.random() * 4}px`,
         opacity: 0.3 + Math.random() * 0.5
     }));
+
+    // Create a "full wheel" by duplicating categories to cover 360 degrees
+    // 8 items * 2 = 16 items. 360 / 16 = 22.5 deg per item.
+    // This wider spacing ensures duplicates aren't visible simultaneously.
+    const fullWheelCategories = [...arcCategories, ...arcCategories];
 
     return (
         <div>
@@ -53,17 +66,19 @@ const LandingPage = () => {
                 <div className="hero-content">
                     <div className="hero-badge">Reimagining Events</div>
                     <h1 className="hero-heading">
-                        Orchestrate the <br />
-                        <span className="text-gradient">Perfect Event</span>
+                        Design, Compare and Book Your <br />
+                        <span className="text-gradient">Entire Event — In One Place</span>
                     </h1>
                     <p className="hero-subheading">
-                        The finest vendors, curated by AI for you.
+                        Personalised vendors, transparent pricing, effortless booking for weddings and events.
                     </p>
                     <div className="hero-buttons">
-                        <button className="primary-btn" onClick={() => navigate('/vendors')}>
-                            Explore Vendors <ArrowRight size={18} />
+                        <button className="primary-btn" onClick={() => navigate('/onboarding')}>
+                            Start Planning Your Event <ArrowRight size={18} />
                         </button>
-                        {/* Secondary button removed as requested */}
+                        <button className="secondary-btn" onClick={() => navigate('/vendors')}>
+                            Browse Vendors
+                        </button>
                     </div>
                 </div>
             </section>
@@ -75,28 +90,68 @@ const LandingPage = () => {
                 </Marquee>
             </section>
 
-            {/* Categories */}
-            <section className="section container">
+            {/* Categories - Arc Design */}
+            <section className="section container" style={{ overflow: 'hidden', paddingBottom: '0' }}>
                 <div className="section-title">
                     <h2 className="section-heading">Curated Collections</h2>
-                    <p style={{ color: 'var(--color-text-muted)' }}>Handpicked categories for every need</p>
+                    <p style={{ color: 'var(--color-text-muted)' }}>Hand-picked vendors matched to your style, budget, and location.</p>
                 </div>
-                <div className="grid-container">
-                    {categories.map((cat, idx) => (
-                        <div key={idx} className="category-card" onClick={() => {
-                            // Map 'Venues' -> 'Venue' to match FilterBar
-                            const targetCat = cat.name === 'Venues' ? 'Venue' : cat.name;
-                            navigate('/vendors', { state: { category: targetCat } });
-                        }} style={{ cursor: 'pointer' }}>
-                            <img src={cat.img} alt={cat.name} className="cat-img" />
-                            <div className="cat-overlay">
-                                <h3 style={{ fontSize: '1.8rem' }}>{cat.name}</h3>
-                                <p style={{ color: 'rgba(255,255,255,0.7)', marginTop: '0.5rem' }}>
-                                    View Collection <ArrowRight size={14} style={{ display: 'inline', marginLeft: '5px' }} />
-                                </p>
-                            </div>
-                        </div>
-                    ))}
+
+                {/* Dynamic Mouse Interaction: Move mouse X to rotate wheel */}
+                <div
+                    className="collection-arc-wrapper"
+                    onMouseMove={(e) => {
+                        // Calculate distance from center of screen
+                        const centerX = window.innerWidth / 2;
+                        const mouseX = e.clientX;
+                        const offset = mouseX - centerX;
+
+                        // Map offset to rotation. 
+                        // If mouse is at right edge (+500px), rotate left (-25deg).
+                        // Factor determines sensitivity. Higher factor = less rotation.
+                        const sensitivity = 20;
+                        const targetRotation = -1 * (offset / sensitivity);
+
+                        // Clamp rotation if desired, or let it spin freely. 
+                        // For infinite feel, no clamp needed, but we don't want it to spin too fast.
+                        setArcRotation(targetRotation);
+                    }}
+                    onMouseLeave={() => setArcRotation(0)}
+                >
+                    <div className="arc-center-text">
+                        <h3>Build Your<br />Dream Event</h3>
+                    </div>
+                    {fullWheelCategories.length > 0 && <div className="arc-spinner" style={{ transform: `rotate(${arcRotation}deg)` }}>
+                        {fullWheelCategories.map((cat, idx, arr) => {
+                            const totalItems = arr.length;
+                            const angleStep = 360 / totalItems;
+                            const rotation = idx * angleStep;
+
+                            return (
+                                <div
+                                    key={idx}
+                                    className="arc-item-container"
+                                    style={{
+                                        transform: `rotate(${rotation}deg)`,
+                                        transformOrigin: '50% 100%'
+                                    }}
+                                >
+                                    <div
+                                        className="arc-item"
+                                        onClick={() => {
+                                            const targetCat = cat.name === 'Venues' ? 'Venue' : cat.name;
+                                            navigate('/vendors', { state: { category: targetCat } });
+                                        }}
+                                    >
+                                        <img src={cat.img} alt={cat.name} className="cat-img-arc" />
+                                        <div className="cat-overlay-arc">
+                                            <span>{cat.name}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            );
+                        })}
+                    </div>}
                 </div>
             </section>
 

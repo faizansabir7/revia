@@ -4,11 +4,14 @@ import Navbar from '../components/Navbar';
 import VendorCard from '../components/VendorCard';
 import FilterBar from '../components/FilterBar';
 import { mockVendors } from '../data/mockVendors';
+import BudgetBar from '../components/BudgetBar';
+import EventKitDrawer from '../components/EventKitDrawer';
 
 const VendorDirectory = () => {
     const location = useLocation();
     const [activeCategory, setActiveCategory] = useState("All");
     const [searchTerm, setSearchTerm] = useState("");
+    const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
     // Handle incoming filters from Onboarding or Landing Page
     useEffect(() => {
@@ -16,12 +19,7 @@ const VendorDirectory = () => {
             if (location.state.category) {
                 setActiveCategory(location.state.category);
             } else if (location.state.filter && location.state.filter.eventType) {
-                // Map Onboarding Event Type to Category if possible, or just default to All/Venue logic
-                // For now, let's keep it simple or map specific known types
-                // Example: 'Wedding' -> Show all relevant (maybe no specific category filter, just context?)
-                // Since our categories are Service-based (Venue, Photo), but Onboarding is Event-based (Wedding)
-                // We might settle for just showing "All" or a specific default text, 
-                // but let's assume 'category' state is the primary direct filter.
+                // Map Onboarding Event Type to Category if possible
             }
         }
     }, [location.state]);
@@ -37,7 +35,7 @@ const VendorDirectory = () => {
         page: {
             minHeight: '100vh',
             paddingTop: '100px', // Space for fixed navbar
-            paddingBottom: '4rem',
+            paddingBottom: '8rem', // Extra space for Budget Bar
         },
         header: {
             textAlign: 'center',
@@ -66,6 +64,8 @@ const VendorDirectory = () => {
     return (
         <div>
             <Navbar />
+            <EventKitDrawer isOpen={isDrawerOpen} onClose={() => setIsDrawerOpen(false)} />
+
             <div className="container" style={styles.page}>
                 <div style={styles.header}>
                     <h1 style={styles.title}>Find Your <span className="text-gradient">Perfect Vendors</span></h1>
@@ -92,6 +92,8 @@ const VendorDirectory = () => {
                     </div>
                 )}
             </div>
+
+            <BudgetBar onOpenDrawer={() => setIsDrawerOpen(true)} />
         </div>
     );
 };
